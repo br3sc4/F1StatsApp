@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import F1StatsKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let season = Season(races: [Season.Race(name: "Pippo", round: 1, date: .now, time: .now)])
         return true
     }
 

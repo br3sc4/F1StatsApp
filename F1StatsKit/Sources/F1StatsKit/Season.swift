@@ -8,9 +8,17 @@
 import Foundation
 
 public struct Season {
-    public private(set) var races: [Race]
+    public let races: [Race]
+    public let driversStanding: StandingItem<Driver>
+    public let constructorStanding: StandingItem<Constructor>
     
-    public init(races: [Race]) {
+    public init(
+        races: [Race],
+        driverStanding: StandingItem<Driver>,
+        constructorStanding: StandingItem<Constructor>
+    ) {
         self.races = races
+        self.driversStanding = driverStanding
+        self.constructorStanding = constructorStanding
     }
 }
