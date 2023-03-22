@@ -13,6 +13,7 @@
 		2D609F4A29C9BA5D0072D3FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D609F4829C9BA5D0072D3FE /* Main.storyboard */; };
 		2D609F4C29C9BA5D0072D3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D609F4B29C9BA5D0072D3FE /* Assets.xcassets */; };
 		2D609F4F29C9BA5D0072D3FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D609F4D29C9BA5D0072D3FE /* LaunchScreen.storyboard */; };
+		2D609F5B29C9C68E0072D3FE /* F1StatsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2D609F5A29C9C68E0072D3FE /* F1StatsKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2D609F4B29C9BA5D0072D3FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D609F4E29C9BA5D0072D3FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D609F5029C9BA5D0072D3FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D609F5829C9BF8B0072D3FE /* F1StatsKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = F1StatsKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D609F5B29C9C68E0072D3FE /* F1StatsKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +43,10 @@
 		2D609F3629C9BA5D0072D3FE = {
 			isa = PBXGroup;
 			children = (
+				2D609F5829C9BF8B0072D3FE /* F1StatsKit */,
 				2D609F4129C9BA5D0072D3FE /* F1StatsApp */,
 				2D609F4029C9BA5D0072D3FE /* Products */,
+				2D609F5929C9C68E0072D3FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +72,13 @@
 			path = F1StatsApp;
 			sourceTree = "<group>";
 		};
+		2D609F5929C9C68E0072D3FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +95,9 @@
 			dependencies = (
 			);
 			name = F1StatsApp;
+			packageProductDependencies = (
+				2D609F5A29C9C68E0072D3FE /* F1StatsKit */,
+			);
 			productName = F1StatsApp;
 			productReference = 2D609F3F29C9BA5D0072D3FE /* F1StatsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -358,6 +373,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2D609F5A29C9C68E0072D3FE /* F1StatsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = F1StatsKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2D609F3729C9BA5D0072D3FE /* Project object */;
 }
