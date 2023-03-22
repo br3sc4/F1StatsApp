@@ -13,6 +13,8 @@
 		2D609F4C29C9BA5D0072D3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D609F4B29C9BA5D0072D3FE /* Assets.xcassets */; };
 		2D609F4F29C9BA5D0072D3FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D609F4D29C9BA5D0072D3FE /* LaunchScreen.storyboard */; };
 		2D609F5B29C9C68E0072D3FE /* F1StatsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2D609F5A29C9C68E0072D3FE /* F1StatsKit */; };
+		2DF8D97A29CB794C00C66C66 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D97929CB794C00C66C66 /* ViewControllerFactory.swift */; };
+		2DF8D97C29CB799600C66C66 /* UIViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D97B29CB799600C66C66 /* UIViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2D609F4E29C9BA5D0072D3FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D609F5029C9BA5D0072D3FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D609F5829C9BF8B0072D3FE /* F1StatsKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = F1StatsKit; sourceTree = "<group>"; };
+		2DF8D97929CB794C00C66C66 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		2DF8D97B29CB799600C66C66 /* UIViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +63,10 @@
 		2D609F4129C9BA5D0072D3FE /* F1StatsApp */ = {
 			isa = PBXGroup;
 			children = (
+				2DF8D97D29CB7A4000C66C66 /* ViewControllers */,
+				2DF8D97829CB791400C66C66 /* Factories */,
 				2D609F4229C9BA5D0072D3FE /* AppDelegate.swift */,
 				2D609F4429C9BA5D0072D3FE /* SceneDelegate.swift */,
-				2D609F4629C9BA5D0072D3FE /* RacesViewController.swift */,
 				2D609F4B29C9BA5D0072D3FE /* Assets.xcassets */,
 				2D609F4D29C9BA5D0072D3FE /* LaunchScreen.storyboard */,
 				2D609F5029C9BA5D0072D3FE /* Info.plist */,
@@ -74,6 +79,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DF8D97829CB791400C66C66 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				2DF8D97929CB794C00C66C66 /* ViewControllerFactory.swift */,
+				2DF8D97B29CB799600C66C66 /* UIViewControllerFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		2DF8D97D29CB7A4000C66C66 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2D609F4629C9BA5D0072D3FE /* RacesViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +171,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF8D97C29CB799600C66C66 /* UIViewControllerFactory.swift in Sources */,
 				2D609F4729C9BA5D0072D3FE /* RacesViewController.swift in Sources */,
+				2DF8D97A29CB794C00C66C66 /* ViewControllerFactory.swift in Sources */,
 				2D609F4329C9BA5D0072D3FE /* AppDelegate.swift in Sources */,
 				2D609F4529C9BA5D0072D3FE /* SceneDelegate.swift in Sources */,
 			);
