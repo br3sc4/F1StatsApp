@@ -14,6 +14,13 @@ extension Race.Circuit {
         public let locality: String
         public let country: String
         
+        public init(longitude: String, latitude: String, locality: String, country: String) {
+            self.longitude = longitude
+            self.latitude = latitude
+            self.locality = locality
+            self.country = country
+        }
+        
         private enum CodingKeys: String, CodingKey {
             case longitude = "long"
             case latitude = "lat"
