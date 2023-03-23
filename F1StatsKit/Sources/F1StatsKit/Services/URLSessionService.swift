@@ -7,12 +7,16 @@
 
 import Foundation
 
-public final class URLSessionService: NetworkService {
+public final class URLSessionService: NetworkService {    
     private let session = URLSession.shared
     
-    public func fetch<T>(from url: URL) async throws -> T where T : Decodable {
+    public init() {}
+    
+    public func fetch<T>(from url: URL) async throws -> [T] where T : F1StatsAPIResponseDecodable {
         let request = URLRequest(url: url, cachePolicy: .reloadRevalidatingCacheData)
         let (data, _) = try await session.data(for: request)
-        return try JSONDecoder().decode(T.self, from: data)
+        let decodedData = try JSONDecoder().decode(Response<T>.self, from: data)
+        
+        return decodedData.content
     }
 }

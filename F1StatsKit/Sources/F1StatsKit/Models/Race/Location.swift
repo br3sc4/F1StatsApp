@@ -8,7 +8,7 @@
 import Foundation
 
 extension Race.Circuit {
-    public struct Location: Decodable {
+    public struct Location: Equatable, Decodable {
         public let longitude: String
         public let latitude: String
         public let locality: String
