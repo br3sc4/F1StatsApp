@@ -23,20 +23,17 @@ final class RaceTableViewCell: UITableViewCell {
     private let localityLabel = UILabel()
     private let nameLabel = UILabel()
     private let dateLabel = UILabel()
+    private let chevronImage = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         
-        contentView.addSubview(roundLabel)
-        contentView.addSubview(localityLabel)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(dateLabel)
-        
         configureRoundLabel()
         configureLocalityLabel()
         configureNameLabel()
         configureDateLabel()
+        configureChevronImage()
         
         setupLayoutConstraints()
     }
@@ -50,24 +47,35 @@ final class RaceTableViewCell: UITableViewCell {
         roundLabel.font = .systemFont(ofSize: 15)
         roundLabel.textColor = .systemRed
         roundLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(roundLabel)
     }
     
     private func configureLocalityLabel() {
         localityLabel.font = .boldSystemFont(ofSize: 20)
         localityLabel.textColor = .label
         localityLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(localityLabel)
     }
     
     private func configureNameLabel() {
         nameLabel.font = .systemFont(ofSize: 15)
         nameLabel.textColor = .secondaryLabel
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(nameLabel)
     }
     
     private func configureDateLabel() {
         dateLabel.font = .systemFont(ofSize: 15)
         dateLabel.textColor = .secondaryLabel
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(dateLabel)
+    }
+    
+    private func configureChevronImage() {
+        chevronImage.image = UIImage(systemName: "chevron.forward")
+        chevronImage.sizeToFit()
+        chevronImage.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(chevronImage)
     }
     
     // MARK: Layout constraints setup
@@ -86,8 +94,12 @@ final class RaceTableViewCell: UITableViewCell {
             nameLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
             
             // Date UILabel
-            dateLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
-            dateLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor)
+            dateLabel.trailingAnchor.constraint(equalTo: chevronImage.leadingAnchor),
+            dateLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            
+            // Chevron UIImageView
+            chevronImage.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            chevronImage.centerYAnchor.constraint(equalTo: contentView.layoutMarginsGuide.centerYAnchor)
         ])
     }
 }
