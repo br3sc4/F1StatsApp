@@ -37,10 +37,8 @@ class RacesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGroupedBackground
         
         tableView.register(RaceTableViewCell.self, forCellReuseIdentifier: "RaceCellId")
-        tableView.separatorStyle = .none
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +52,12 @@ class RacesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        80
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = RaceDetailViewController()
+        vc.race = races[indexPath.row]
+        show(vc, sender: self)
     }
 }
