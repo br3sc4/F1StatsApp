@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import F1StatsKit
 
 final class UIViewControllerFactory: ViewControllerFactory {
+    private let networkService: NetworkService = URLSessionService()
+    
     func makeRacesViewController() -> UIViewController {
-        return RacesViewController()
+        let vc = RacesViewController(service: networkService)
+        vc.title = "Races"
+        return vc
     }
 }
