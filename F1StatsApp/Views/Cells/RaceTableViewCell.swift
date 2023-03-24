@@ -32,8 +32,7 @@ final class RaceTableViewCell: UITableViewCell {
         contentView.addSubview(localityLabel)
         contentView.addSubview(nameLabel)
         contentView.addSubview(dateLabel)
-
-        configureContentView()
+        
         configureRoundLabel()
         configureLocalityLabel()
         configureNameLabel()
@@ -42,23 +41,11 @@ final class RaceTableViewCell: UITableViewCell {
         setupLayoutConstraints()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let edgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        contentView.frame = contentView.frame.inset(by: edgeInsets)
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: Views configuration
-    private func configureContentView() {
-        contentView.backgroundColor = .systemBackground
-        contentView.layer.cornerRadius = 8
-    }
-    
     private func configureRoundLabel() {
         roundLabel.font = .systemFont(ofSize: 15)
         roundLabel.textColor = .systemRed
@@ -86,14 +73,21 @@ final class RaceTableViewCell: UITableViewCell {
     // MARK: Layout constraints setup
     private func setupLayoutConstraints() {
         NSLayoutConstraint.activate([
-            roundLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            roundLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            localityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            // Round UILabel
+            roundLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            roundLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            
+            // Locality UILabel
+            localityLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
             localityLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8)
+            
+            // Name UILabel
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+            
+            // Date UILabel
+            dateLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            dateLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor)
         ])
     }
 }
