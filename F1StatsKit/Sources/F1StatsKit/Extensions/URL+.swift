@@ -13,7 +13,7 @@ extension URL {
     }
     
     public static var races: URL {
-        baseURL.appending(path: ".json")
+        baseURL.appendingPathExtension("json")
     }
     
     public static var driversStanging: URL {
