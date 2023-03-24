@@ -8,11 +8,18 @@
 import Foundation
 
 extension Race.Circuit {
-    public struct Location: Decodable {
+    public struct Location: Equatable, Decodable {
         public let longitude: String
         public let latitude: String
         public let locality: String
         public let country: String
+        
+        public init(longitude: String, latitude: String, locality: String, country: String) {
+            self.longitude = longitude
+            self.latitude = latitude
+            self.locality = locality
+            self.country = country
+        }
         
         private enum CodingKeys: String, CodingKey {
             case longitude = "long"

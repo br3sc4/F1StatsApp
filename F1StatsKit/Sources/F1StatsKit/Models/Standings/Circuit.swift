@@ -8,7 +8,7 @@
 import Foundation
 
 extension Race {
-    public struct Circuit: Decodable {
+    public struct Circuit: Equatable, Decodable {
         public let id: String
         public let name: String
         public let location: Location
