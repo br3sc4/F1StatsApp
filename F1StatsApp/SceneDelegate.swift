@@ -18,13 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         let factory = UIViewControllerFactory()
-        let navigationVC = UINavigationController(rootViewController: factory.makeRacesViewController())
-        navigationVC.navigationBar.prefersLargeTitles = true
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = navigationVC
+        window?.rootViewController = FlatNavigationController(viewControllers: [
+            factory.makeRacesViewController(),
+            factory.makeStandingsViewController()
+        ])
         window?.makeKeyAndVisible()
     }
 

@@ -9,4 +9,5 @@ import UIKit
 
 protocol ViewControllerFactory {
     func makeRacesViewController() -> UIViewController
+    func makeStandingsViewController() -> UIViewController
 }
