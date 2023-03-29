@@ -7,11 +7,14 @@
 
 import Foundation
 
-public struct Race: Equatable {
+public struct Race: Equatable, Identifiable {
     public let name: String
     public let round: String
     public let date: Date
     public let circuit: Circuit
+    public var id: String {
+        name
+    }
     
     public init(name: String, round: String, date: Date, circuit: Circuit) {
         self.name = name
@@ -22,7 +25,7 @@ public struct Race: Equatable {
 }
 
 // MARK: Decodable
-extension Race: F1StatsAPIResponseDecodable {
+extension Race: APIResponseDecodable {
     public static var tableName: String {
         "RaceTable"
     }
