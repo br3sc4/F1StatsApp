@@ -15,6 +15,9 @@
 		2D609F5B29C9C68E0072D3FE /* F1StatsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2D609F5A29C9C68E0072D3FE /* F1StatsKit */; };
 		2D93183E29CE1C1900276EB3 /* FlatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93183D29CE1C1900276EB3 /* FlatNavigationController.swift */; };
 		2DCB392B29D2C49A00E6DF67 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB392A29D2C49A00E6DF67 /* StandingsViewController.swift */; };
+		2DCB392E29D4342000E6DF67 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB392D29D4342000E6DF67 /* Section.swift */; };
+		2DCB393029D4352C00E6DF67 /* StandingItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB392F29D4352C00E6DF67 /* StandingItemCollectionViewCell.swift */; };
+		2DCB393329D4768D00E6DF67 /* StandingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB393229D4768D00E6DF67 /* StandingsStore.swift */; };
 		2DF8D97A29CB794C00C66C66 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D97929CB794C00C66C66 /* ViewControllerFactory.swift */; };
 		2DF8D97C29CB799600C66C66 /* UIViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D97B29CB799600C66C66 /* UIViewControllerFactory.swift */; };
 		2DF8D98029CB7F2C00C66C66 /* RaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D97F29CB7F2C00C66C66 /* RaceTableViewCell.swift */; };
@@ -33,6 +36,9 @@
 		2D609F5829C9BF8B0072D3FE /* F1StatsKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = F1StatsKit; sourceTree = "<group>"; };
 		2D93183D29CE1C1900276EB3 /* FlatNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatNavigationController.swift; sourceTree = "<group>"; };
 		2DCB392A29D2C49A00E6DF67 /* StandingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
+		2DCB392D29D4342000E6DF67 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		2DCB392F29D4352C00E6DF67 /* StandingItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DCB393229D4768D00E6DF67 /* StandingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsStore.swift; sourceTree = "<group>"; };
 		2DF8D97929CB794C00C66C66 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		2DF8D97B29CB799600C66C66 /* UIViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerFactory.swift; sourceTree = "<group>"; };
 		2DF8D97F29CB7F2C00C66C66 /* RaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceTableViewCell.swift; sourceTree = "<group>"; };
@@ -73,6 +79,8 @@
 		2D609F4129C9BA5D0072D3FE /* F1StatsApp */ = {
 			isa = PBXGroup;
 			children = (
+				2DCB393129D4767500E6DF67 /* Stores */,
+				2DCB392C29D433F900E6DF67 /* Model */,
 				2DF8D97E29CB7F1900C66C66 /* Views */,
 				2DF8D97D29CB7A4000C66C66 /* ViewControllers */,
 				2DF8D97829CB791400C66C66 /* Factories */,
@@ -90,6 +98,22 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DCB392C29D433F900E6DF67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DCB392D29D4342000E6DF67 /* Section.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2DCB393129D4767500E6DF67 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				2DCB393229D4768D00E6DF67 /* StandingsStore.swift */,
+			);
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		2DF8D97829CB791400C66C66 /* Factories */ = {
@@ -125,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				2DF8D97F29CB7F2C00C66C66 /* RaceTableViewCell.swift */,
+				2DCB392F29D4352C00E6DF67 /* StandingItemCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -206,10 +231,13 @@
 				2DF8D97C29CB799600C66C66 /* UIViewControllerFactory.swift in Sources */,
 				2D609F4729C9BA5D0072D3FE /* RacesViewController.swift in Sources */,
 				2DF8D97A29CB794C00C66C66 /* ViewControllerFactory.swift in Sources */,
+				2DCB392E29D4342000E6DF67 /* Section.swift in Sources */,
 				2DCB392B29D2C49A00E6DF67 /* StandingsViewController.swift in Sources */,
+				2DCB393329D4768D00E6DF67 /* StandingsStore.swift in Sources */,
 				2D609F4329C9BA5D0072D3FE /* AppDelegate.swift in Sources */,
 				2D93183E29CE1C1900276EB3 /* FlatNavigationController.swift in Sources */,
 				2DF8D98629CDA83100C66C66 /* CircuitDetailView.swift in Sources */,
+				2DCB393029D4352C00E6DF67 /* StandingItemCollectionViewCell.swift in Sources */,
 				2DF8D98829CDA9DA00C66C66 /* RaceDetailViewController.swift in Sources */,
 				2D609F4529C9BA5D0072D3FE /* SceneDelegate.swift in Sources */,
 			);
