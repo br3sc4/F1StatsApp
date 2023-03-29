@@ -12,20 +12,25 @@ final class UIViewControllerFactory: ViewControllerFactory {
     private let networkService: NetworkService = URLSessionService()
     
     func makeRacesViewController() -> UIViewController {
-        let vc = RacesViewController(service: networkService)
+        let vc = RacesViewController(store: RacesStore(service: networkService))
         vc.title = "Races"
-        vc.tabBarItem.image = UIImage(systemName: "list.bullet")
-        vc.tabBarItem.title = "Races"
+        vc.tabBarItem = UITabBarItem(
+            title: "Races",
+            image: UIImage(systemName: "list.bullet"),
+            selectedImage: nil
+        )
         return vc
     }
     
     func makeStandingsViewController() -> UIViewController {
-        let vc = UIViewController()
+        let vc = StandingsViewController(standingStore: StandingsStore(service: networkService))
         vc.view.backgroundColor = .systemBackground
         vc.title = "Standings"
-        vc.tabBarItem.image = UIImage(systemName: "trophy")
-        vc.tabBarItem.selectedImage = UIImage(systemName: "trophy.fill")
-        vc.tabBarItem.title = "Standings"
+        vc.tabBarItem = UITabBarItem(
+            title: "Standings",
+            image: UIImage(systemName: "trophy"),
+            selectedImage: UIImage(systemName: "trophy.fill")
+        )
         return vc
     }
 }
