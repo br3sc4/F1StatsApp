@@ -22,7 +22,7 @@ public struct Race: Equatable {
 }
 
 // MARK: Decodable
-extension Race: F1StatsAPIResponseDecodable {
+extension Race: APIResponseDecodable {
     public static var tableName: String {
         "RaceTable"
     }

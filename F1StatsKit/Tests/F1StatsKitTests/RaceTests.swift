@@ -72,7 +72,7 @@ final class RaceTests: XCTestCase {
         ]
         
         let decoder = JSONDecoder()
-        let races = try decoder.decode(Response<Race>.self, from: json)
+        let races = try decoder.decode(Response<[Race]>.self, from: json)
         
         XCTAssertEqual(races.content, expectedResult)
     }

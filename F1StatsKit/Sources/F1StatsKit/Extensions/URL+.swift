@@ -16,8 +16,8 @@ extension URL {
         baseURL.appendingPathExtension("json")
     }
     
-    public static var driversStanging: URL {
-        baseURL.appending(path: "/driversStandings.json")
+    public static var driversStanding: URL {
+        baseURL.appending(path: "/driverStandings.json")
     }
     
     public static var constructorsStanding: URL {
