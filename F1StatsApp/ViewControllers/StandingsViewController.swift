@@ -22,7 +22,7 @@ class StandingsViewController: UIViewController {
         super.init(nibName: nil, bundle: .main)
         
         standingStore.subject
-            .sink(receiveValue: self.updateSnapshot)
+            .sink(receiveValue: updateSnapshot)
             .store(in: &cancellables)
     }
     
