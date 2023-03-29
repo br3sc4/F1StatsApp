@@ -1,6 +1,6 @@
 # F1StatsApp
 
-This project is a simple progammatically made UIKit application that shows all Formula 1 championship races and and both drivers and constructors standings.
+This project is a simple progammatically made UIKit application that shows all Formula 1 championship races and both drivers and constructors standings.
 
 All data are retrieved form [ergast.com](https://ergast.com/mrd/).
 
