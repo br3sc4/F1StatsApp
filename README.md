@@ -16,3 +16,7 @@ The `F1StatsKit` include the entire application business logic in order to separ
 - How to display data in a `UITableView` using `UITableViewDiffableDataSource`
 - How to handle programmatically both `UITabBarView` and `UINavigationView`
 - How to display different data types in a `UICollectionView` with `UICollectionViewCompositionalLayout`
+
+## License
+
+[GNU General Public License v3.0](/LICENSE)
