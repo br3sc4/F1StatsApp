@@ -23,7 +23,7 @@ final class UIViewControllerFactory: ViewControllerFactory {
     }
     
     func makeStandingsViewController() -> UIViewController {
-        let vc = StandingsViewController()
+        let vc = StandingsViewController(standingStore: StandingsStore(service: networkService))
         vc.view.backgroundColor = .systemBackground
         vc.title = "Standings"
         vc.tabBarItem = UITabBarItem(
