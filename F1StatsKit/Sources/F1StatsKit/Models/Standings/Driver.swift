@@ -7,10 +7,13 @@
 
 import Foundation
 
-public struct Driver: Equatable {
+public struct Driver: Equatable, Identifiable {
     public let firstName: String
     public let lastName: String
     public let code: String
+    public var id: String {
+        code
+    }
 }
 
 extension Driver: Decodable {

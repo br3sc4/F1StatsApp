@@ -21,6 +21,6 @@ extension URL {
     }
     
     public static var constructorsStanding: URL {
-        baseURL.appending(path: "/constructorsStandings.json")
+        baseURL.appending(path: "/constructorStandings.json")
     }
 }

@@ -7,11 +7,20 @@
 
 import Foundation
 
-public struct Constructor: Equatable {
+public struct Constructor: Equatable, Identifiable {
     public let id: String
     public let name: String
-    public let natinality: String
+    public let nationality: String
     public let url: String
+}
+
+extension Constructor: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case id = "constructorId"
+        case name
+        case nationality
+        case url
+    }
 }
 
 extension Constructor: APIResponseDecodable {
