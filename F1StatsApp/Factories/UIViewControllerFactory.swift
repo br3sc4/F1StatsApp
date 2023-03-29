@@ -12,7 +12,7 @@ final class UIViewControllerFactory: ViewControllerFactory {
     private let networkService: NetworkService = URLSessionService()
     
     func makeRacesViewController() -> UIViewController {
-        let vc = RacesViewController(service: networkService)
+        let vc = RacesViewController(store: RacesStore(service: networkService))
         vc.title = "Races"
         vc.tabBarItem = UITabBarItem(
             title: "Races",
