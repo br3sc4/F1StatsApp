@@ -75,13 +75,15 @@ extension StandingsViewController {
                 cell.configure(with: CompetitorViewModel(
                     points: driver.points.formatted(),
                     competitorName: driver.competitor.code,
-                    wins: driver.wins.formatted()
+                    wins: driver.wins.formatted(),
+                    position: driver.position
                 ))
             } else if let constructor = self.standingStore.fetchConstructorByID(competitorID) {
                 cell.configure(with: CompetitorViewModel(
                     points: constructor.points.formatted(),
                     competitorName: constructor.competitor.name,
-                    wins: constructor.wins.formatted()
+                    wins: constructor.wins.formatted(),
+                    position: constructor.position
                 ))
             }
         }

@@ -12,6 +12,7 @@ struct CompetitorViewModel {
     let points: String
     let competitorName: String
     let wins: String
+    let position: Int
 }
 
 class StandingItemCollectionViewCell: UICollectionViewCell {
@@ -22,10 +23,7 @@ class StandingItemCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .white
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-        contentView.layer.cornerRadius = 12
+        configureContentView()
         
         configureStackView()
         configurePointsLabel()
@@ -47,6 +45,31 @@ class StandingItemCollectionViewCell: UICollectionViewCell {
 }
 
 extension StandingItemCollectionViewCell {
+    private enum BorderColor {
+        static var gold: CGColor {
+            CGColor(red: 212, green: 175, blue: 55, alpha: 1)
+        }
+        
+        static var silver: CGColor {
+            CGColor(red: 192, green: 192, blue: 192, alpha: 1)
+        }
+        
+        static var bronze: CGColor {
+            CGColor(red: 159, green: 122, blue: 52, alpha: 1)
+        }
+        
+        static var `default`: CGColor {
+            CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+    
+    private func configureContentView() {
+        contentView.backgroundColor = .clear
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = BorderColor.default
+        contentView.layer.cornerRadius = 12
+    }
+    
     private func configureStackView() {
         stackView.axis = .vertical
         stackView.distribution = .fill
