@@ -44,28 +44,42 @@ final class RaceTableViewCell: UITableViewCell {
     
     // MARK: Views configuration
     private func configureRoundLabel() {
-        roundLabel.font = .systemFont(ofSize: 15)
+        roundLabel.font = UIFont(
+            descriptor: UIFontDescriptor
+                .preferredFontDescriptor(withTextStyle: .body)
+                .withSymbolicTraits(.traitBold)!,
+            size: 0
+        )
         roundLabel.textColor = .systemRed
         roundLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(roundLabel)
     }
     
     private func configureLocalityLabel() {
-        localityLabel.font = .boldSystemFont(ofSize: 20)
+        localityLabel.font = UIFont(
+            descriptor: .preferredFontDescriptor(withTextStyle: .headline),
+            size: 0
+        )
         localityLabel.textColor = .label
         localityLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(localityLabel)
     }
     
     private func configureNameLabel() {
-        nameLabel.font = .systemFont(ofSize: 15)
+        nameLabel.font = UIFont(
+            descriptor: .preferredFontDescriptor(withTextStyle: .subheadline),
+            size: 0
+        )
         nameLabel.textColor = .secondaryLabel
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
     }
     
     private func configureDateLabel() {
-        dateLabel.font = .systemFont(ofSize: 15)
+        dateLabel.font = UIFont(
+            descriptor: .preferredFontDescriptor(withTextStyle: .subheadline),
+            size: 0
+        )
         dateLabel.textColor = .secondaryLabel
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(dateLabel)
