@@ -7,15 +7,21 @@
 
 import UIKit
 import F1StatsKit
+import Combine
 
 class RacesViewController: UITableViewController {
-    private var races: [Race] = []
+    private var dataSource: UITableViewDiffableDataSource<Section, Race.ID>! = nil
+    private var store: RacesStore
     
-    private var service: NetworkService
+    private var cancellables: Set<AnyCancellable> = []
     
-    init(service: NetworkService) {
-        self.service = service
+    init(store: RacesStore) {
+        self.store = store
         super.init(style: .plain)
+        
+        store.subject
+            .sink(receiveValue: updateSnapshot)
+            .store(in: &cancellables)
     }
     
     required init?(coder: NSCoder) {
@@ -25,36 +31,42 @@ class RacesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(RaceTableViewCell.self, forCellReuseIdentifier: "RaceCellId")
-        
-        // TODO: make it cleaner
-        Task {
-            do {
-                races = try await service.fetch([Race].self, from: .races)
-                tableView.reloadData()
-            } catch {
-                debugPrint(error)
-            }
-        }
+        configureDataSource()
+        tableView.dataSource = dataSource
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return races.count
+    private func updateSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Race.ID>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(store.fetchRacesIDs(), toSection: .main)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCellId", for: indexPath) as! RaceTableViewCell
-        cell.race = races[indexPath.row]
-        return cell
-    }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = RaceDetailViewController()
-        vc.race = races[indexPath.row]
+        vc.race = store[indexPath]
         show(vc, sender: self)
+    }
+    
+    private func configureDataSource() {
+        tableView.register(RaceTableViewCell.self, forCellReuseIdentifier: "RaceCellId")
+        
+        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: {
+            tableView, indexPath, itemIdentifier in
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCellId", for: indexPath) as! RaceTableViewCell
+            cell.race = self.store.fetchRaceByID(itemIdentifier)
+            return cell
+        })
+    }
+}
+
+extension RacesViewController {
+    private enum Section: String, CaseIterable {
+        case main
     }
 }
