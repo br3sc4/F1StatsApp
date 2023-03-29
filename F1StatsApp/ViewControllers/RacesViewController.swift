@@ -9,26 +9,13 @@ import UIKit
 import F1StatsKit
 
 class RacesViewController: UITableViewController {
-    private var races: [Race] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var races: [Race] = []
     
     private var service: NetworkService
     
     init(service: NetworkService) {
         self.service = service
         super.init(style: .plain)
-        
-        // TODO: make it cleaner
-        Task {
-            do {
-                races = try await service.fetch(Race.self, from: .races)
-            } catch {
-                debugPrint(error)
-            }
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -39,6 +26,16 @@ class RacesViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(RaceTableViewCell.self, forCellReuseIdentifier: "RaceCellId")
+        
+        // TODO: make it cleaner
+        Task {
+            do {
+                races = try await service.fetch([Race].self, from: .races)
+                tableView.reloadData()
+            } catch {
+                debugPrint(error)
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
