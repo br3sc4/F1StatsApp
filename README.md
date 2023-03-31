@@ -10,7 +10,7 @@ Here are few endpoints I used:
 
 ## Architecture
 
-The entire project is based on the Model-View-Controller (MVC) architecture which is the architecture that UIKit conforms to.
+The entire project is based on the Model-View-Controller (MVC) architecture.
 
 ![MVC architecture diagram](/Docs/architecture.png)
 
